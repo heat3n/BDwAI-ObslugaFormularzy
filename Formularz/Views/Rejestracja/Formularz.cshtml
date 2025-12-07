@@ -1,0 +1,67 @@
+﻿@model RejestracjaModel
+
+<h2>Formularz Rejestracyjny</h2>
+
+<form asp-action="Formularz" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="Imie"></label>
+        <input asp-for="Imie" class="form-control" />
+        <span asp-validation-for="Imie" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Nazwisko"></label>
+        <input asp-for="Nazwisko" class="form-control" />
+        <span asp-validation-for="Nazwisko" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Haslo"></label>
+        <input asp-for="Haslo" class="form-control" />
+        <span asp-validation-for="Haslo" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PotwierdzenieHasla"></label>
+        <input asp-for="PotwierdzenieHasla" class="form-control" />
+        <span asp-validation-for="PotwierdzenieHasla" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Telefon"></label>
+        <input asp-for="Telefon" class="form-control" />
+        <span asp-validation-for="Telefon" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Wiek"></label>
+        <input asp-for="Wiek" class="form-control" />
+        <span asp-validation-for="Wiek" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Miasto"></label>
+        <select asp-for="Miasto"
+                asp-items="Html.GetEnumSelectList<Miasto>()"
+                class="form-control">
+        </select>
+    </div>
+
+    <br />
+    <button type="submit" class="btn btn-primary">Zarejestruj</button>
+    <button type="reset" class="btn btn-secondary">Wyczyść</button>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
